@@ -14,6 +14,7 @@ namespace FSCR
     {
         Checker checker = null;
         StringBuilder sb = new StringBuilder();
+        bool oldState = true;
 
         public Main()
         {
@@ -33,16 +34,28 @@ namespace FSCR
                 checker = new Checker();
             }
 
-            if (checker.check())
+            if (sb.ToString() != "")
             {
-                sb.Append("\nFullscreen");
-            }
-            else
-            {
-                sb.Append("\nWindowed");
+                sb.Append(Environment.NewLine);
             }
 
-            tbLog.Text = sb.ToString();
+            sb.Append(DateTime.Now);
+
+            bool newState = checker.check();
+
+            if (newState != oldState)
+            {
+                if (newState)
+                {
+                    sb.Append(" : Fullscreen");
+                }
+                else
+                {
+                    sb.Append(" : Windowed");
+                }
+
+                tbLog.Text = sb.ToString();
+            }
         }
     }
 }
