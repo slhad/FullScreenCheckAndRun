@@ -12,9 +12,8 @@ namespace FSCR
 {
     public partial class Main : Form
     {
-        Checker checker = null;
+        FullscreenChecker checker = null;
         BFGMiner bfgm = null;
-        StringBuilder sb = new StringBuilder();
         bool oldState = true;
         bool firstRun = true;
 
@@ -33,37 +32,44 @@ namespace FSCR
         {
             if (checker == null)
             {
-                checker = new Checker();
+                checker = new FullscreenChecker();
             }
 
             bool newState = checker.check();
 
             if (newState != oldState)
             {
-                if (sb.ToString() != "")
+                if (tbLog.Text.Length > 0)
                 {
-                    sb.Append(Environment.NewLine);
+                    tbLog.AppendText(Environment.NewLine);
                 }
 
-                sb.Append(DateTime.Now);
+                tbLog.AppendText(DateTime.Now + "");
 
 
                 if (newState)
                 {
-                    sb.Append(" : Fullscreen");
+                    tbLog.AppendText(" : Fullscreen");
                 }
                 else
                 {
-                    sb.Append(" : Windowed");
+                    tbLog.AppendText(" : Windowed");
                 }
 
                 oldState = newState;
 
-
-
                 if (bfgm == null)
                 {
-                    bfgm = new BFGMiner("127.0.0.1", 4028);
+                    Int32 pPort = 4028;
+                    try
+                    {
+                        pPort = Convert.ToInt32(nUDPort.Value);
+                    }
+                    catch (System.OverflowException eof)
+                    {
+                        if (eof != null) { }
+                    }
+                    bfgm = new BFGMiner(tbServer.Text, pPort);
                 }
 
                 if (firstRun)
@@ -77,8 +83,6 @@ namespace FSCR
                         bfgm.setStatusGPUs(!newState);
                     }
                 }
-
-                tbLog.Text = sb.ToString();
             }
         }
     }

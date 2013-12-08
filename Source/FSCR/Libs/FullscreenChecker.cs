@@ -23,7 +23,7 @@ public struct Size
 
 namespace FSCR.Libs
 {
-    class Checker
+    class FullscreenChecker
     {
         [DllImport("user32.dll")]
         private static extern IntPtr GetForegroundWindow();

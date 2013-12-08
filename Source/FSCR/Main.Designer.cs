@@ -33,6 +33,11 @@
             this.bIsEnabled = new System.Windows.Forms.Button();
             this.tbLog = new System.Windows.Forms.TextBox();
             this.cbRun = new System.Windows.Forms.CheckBox();
+            this.tbServer = new System.Windows.Forms.TextBox();
+            this.nUDPort = new System.Windows.Forms.NumericUpDown();
+            this.lPort = new System.Windows.Forms.Label();
+            this.lServer = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.nUDPort)).BeginInit();
             this.SuspendLayout();
             // 
             // timerCheck
@@ -76,16 +81,69 @@
             this.cbRun.Text = "Executor";
             this.cbRun.UseVisualStyleBackColor = true;
             // 
+            // tbServer
+            // 
+            this.tbServer.Location = new System.Drawing.Point(371, 11);
+            this.tbServer.Name = "tbServer";
+            this.tbServer.Size = new System.Drawing.Size(145, 20);
+            this.tbServer.TabIndex = 3;
+            this.tbServer.Text = "127.0.0.1";
+            // 
+            // nUDPort
+            // 
+            this.nUDPort.Location = new System.Drawing.Point(554, 11);
+            this.nUDPort.Maximum = new decimal(new int[] {
+            65536,
+            0,
+            0,
+            0});
+            this.nUDPort.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nUDPort.Name = "nUDPort";
+            this.nUDPort.Size = new System.Drawing.Size(68, 20);
+            this.nUDPort.TabIndex = 4;
+            this.nUDPort.Value = new decimal(new int[] {
+            4028,
+            0,
+            0,
+            0});
+            // 
+            // lPort
+            // 
+            this.lPort.AutoSize = true;
+            this.lPort.Location = new System.Drawing.Point(522, 13);
+            this.lPort.Name = "lPort";
+            this.lPort.Size = new System.Drawing.Size(26, 13);
+            this.lPort.TabIndex = 5;
+            this.lPort.Text = "Port";
+            // 
+            // lServer
+            // 
+            this.lServer.AutoSize = true;
+            this.lServer.Location = new System.Drawing.Point(327, 14);
+            this.lServer.Name = "lServer";
+            this.lServer.Size = new System.Drawing.Size(38, 13);
+            this.lServer.TabIndex = 6;
+            this.lServer.Text = "Server";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(634, 270);
+            this.Controls.Add(this.lServer);
+            this.Controls.Add(this.lPort);
+            this.Controls.Add(this.nUDPort);
+            this.Controls.Add(this.tbServer);
             this.Controls.Add(this.cbRun);
             this.Controls.Add(this.tbLog);
             this.Controls.Add(this.bIsEnabled);
             this.Name = "Main";
             this.Text = "Full Screen Check and Run";
+            ((System.ComponentModel.ISupportInitialize)(this.nUDPort)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -97,6 +155,10 @@
         private System.Windows.Forms.Button bIsEnabled;
         private System.Windows.Forms.TextBox tbLog;
         private System.Windows.Forms.CheckBox cbRun;
+        private System.Windows.Forms.TextBox tbServer;
+        private System.Windows.Forms.NumericUpDown nUDPort;
+        private System.Windows.Forms.Label lPort;
+        private System.Windows.Forms.Label lServer;
     }
 }
 
