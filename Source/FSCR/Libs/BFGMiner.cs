@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace FSCR.Libs
@@ -37,6 +38,45 @@ namespace FSCR.Libs
                 }
             }
             return nGPU;
+        }
+
+        public String setGPUEnable(int number, bool status)
+        {
+            String request = null;
+            if (status)
+            {
+                request = "gpuenable|";
+            }
+            else
+            {
+                request = "gpudisable|";
+            }
+
+            request += number;
+
+            String result = rc.request(request);
+
+            return result;
+
+        }
+
+        public void setStatusGPUs(bool status, Int32 val = -1)
+        {
+            int nbGPU = 0;
+
+            if (val > 0)
+            {
+                nbGPU = val;
+            }
+            else
+            {
+                nbGPU = getGPUs();
+            }
+
+            for (int x = 0; x < nbGPU; x++)
+            {
+                setGPUEnable(x, status);
+            }
         }
 
     }

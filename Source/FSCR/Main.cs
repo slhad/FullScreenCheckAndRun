@@ -72,7 +72,10 @@ namespace FSCR
                 }
                 else
                 {
-                    bfgm.getGPUs();
+                    if (cbRun.Checked)
+                    {
+                        bfgm.setStatusGPUs(!newState);
+                    }
                 }
 
                 tbLog.Text = sb.ToString();
