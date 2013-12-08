@@ -32,6 +32,7 @@
             this.timerCheck = new System.Windows.Forms.Timer(this.components);
             this.bIsEnabled = new System.Windows.Forms.Button();
             this.tbLog = new System.Windows.Forms.TextBox();
+            this.cbRun = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // timerCheck
@@ -63,11 +64,24 @@
             this.tbLog.Size = new System.Drawing.Size(610, 217);
             this.tbLog.TabIndex = 1;
             // 
+            // cbRun
+            // 
+            this.cbRun.AutoSize = true;
+            this.cbRun.Checked = true;
+            this.cbRun.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbRun.Location = new System.Drawing.Point(93, 16);
+            this.cbRun.Name = "cbRun";
+            this.cbRun.Size = new System.Drawing.Size(68, 17);
+            this.cbRun.TabIndex = 2;
+            this.cbRun.Text = "Executor";
+            this.cbRun.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(634, 270);
+            this.Controls.Add(this.cbRun);
             this.Controls.Add(this.tbLog);
             this.Controls.Add(this.bIsEnabled);
             this.Name = "Main";
@@ -82,6 +96,7 @@
         private System.Windows.Forms.Timer timerCheck;
         private System.Windows.Forms.Button bIsEnabled;
         private System.Windows.Forms.TextBox tbLog;
+        private System.Windows.Forms.CheckBox cbRun;
     }
 }
 

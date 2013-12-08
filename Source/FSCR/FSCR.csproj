@@ -44,7 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Libs\BFGMiner.cs" />
     <Compile Include="Libs\Checker.cs" />
+    <Compile Include="Libs\RPC-Client.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>

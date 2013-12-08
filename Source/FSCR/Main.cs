@@ -13,8 +13,10 @@ namespace FSCR
     public partial class Main : Form
     {
         Checker checker = null;
+        BFGMiner bfgm = null;
         StringBuilder sb = new StringBuilder();
         bool oldState = true;
+        bool firstRun = true;
 
         public Main()
         {
@@ -34,17 +36,18 @@ namespace FSCR
                 checker = new Checker();
             }
 
-            if (sb.ToString() != "")
-            {
-                sb.Append(Environment.NewLine);
-            }
-
-            sb.Append(DateTime.Now);
-
             bool newState = checker.check();
 
             if (newState != oldState)
             {
+                if (sb.ToString() != "")
+                {
+                    sb.Append(Environment.NewLine);
+                }
+
+                sb.Append(DateTime.Now);
+
+
                 if (newState)
                 {
                     sb.Append(" : Fullscreen");
@@ -52,6 +55,24 @@ namespace FSCR
                 else
                 {
                     sb.Append(" : Windowed");
+                }
+
+                oldState = newState;
+
+
+
+                if (bfgm == null)
+                {
+                    bfgm = new BFGMiner("127.0.0.1", 4028);
+                }
+
+                if (firstRun)
+                {
+                    firstRun = false;
+                }
+                else
+                {
+                    bfgm.getGPUs();
                 }
 
                 tbLog.Text = sb.ToString();
